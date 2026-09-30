@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeke Herbert – Portfolio &amp; Lebenslauf</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            brand: {
+              blue: '#0071e3',
+              indigo: '#4f46e5',
+              teal: '#0d9488',
+              emerald: '#059669',
+              dark: '#1d1d1f'
+            }
+          },
+          animation: {
+            'blob-float-1': 'blobFloat1 20s ease-in-out infinite alternate',
+            'blob-float-2': 'blobFloat2 24s ease-in-out infinite alternate',
+            'blob-float-3': 'blobFloat3 18s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            blobFloat1: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '50%': { transform: 'translate(60px, -40px) scale(1.15)' },
+              '100%': { transform: 'translate(-40px, 50px) scale(0.92)' }
+            },
+            blobFloat2: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '50%': { transform: 'translate(-70px, 60px) scale(1.2)' },
+              '100%': { transform: 'translate(50px, -30px) scale(0.88)' }
+            },
+            blobFloat3: {
+              '0%': { transform: 'translate(0px, 0px) scale(0.9)' },
+              '50%': { transform: 'translate(50px, 50px) scale(1.1)' },
+              '100%': { transform: 'translate(-30px, -60px) scale(1.05)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Light Apple Liquid Glassmorphism Core */
+    .liquid-glass {
+      background: rgba(255, 255, 255, 0.68);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.04), 
+                  0 2px 6px -1px rgba(0, 0, 0, 0.02),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+      position: relative;
+    }
+
+    .liquid-glass-card {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .liquid-glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.7),
+        rgba(0, 113, 227, 0.08),
+        transparent
+      );
+      transition: 0.65s ease;
+      pointer-events: none;
+    }
+
+    .liquid-glass-card:hover::before {
+      left: 100%;
+    }
+
+    .liquid-glass-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.85);
+      border-color: rgba(0, 113, 227, 0.35);
+      box-shadow: 0 18px 36px -6px rgba(0, 113, 227, 0.1),
+                  0 6px 16px -2px rgba(0, 0, 0, 0.04),
+                  inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+    }
+
+    .liquid-pill {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      transition: all 0.25s ease;
+    }
+
+    .liquid-pill:hover, .liquid-pill.active {
+      background: linear-gradient(135deg, rgba(0, 113, 227, 0.12), rgba(14, 165, 233, 0.15));
+      border-color: rgba(0, 113, 227, 0.4);
+      color: #0071e3;
+      box-shadow: 0 4px 12px rgba(0, 113, 227, 0.12), inset 0 1px 1px rgba(255, 255, 255, 1);
+    }
+
+    /* Clean Subtle Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f4f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 113, 227, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-[#f5f7fb] text-slate-800 min-h-screen selection:bg-blue-500 selection:text-white font-sans antialiased relative overflow-x-hidden">
+
+  <!-- Apple Ambient Liquid Glow Elements (Light Mode) -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute top-[-8%] left-[8%] w-[580px] h-[580px] rounded-full bg-gradient-to-tr from-blue-300/40 via-sky-200/50 to-transparent blur-[110px] animate-blob-float-1"></div>
+    <div class="absolute top-[32%] right-[-5%] w-[640px] h-[640px] rounded-full bg-gradient-to-bl from-indigo-200/40 via-purple-100/40 to-transparent blur-[130px] animate-blob-float-2"></div>
+    <div class="absolute bottom-[-10%] left-[22%] w-[720px] h-[720px] rounded-full bg-gradient-to-t from-teal-200/35 via-cyan-100/40 to-transparent blur-[140px] animate-blob-float-3"></div>
+    <!-- Fine Subtle Matrix Grid -->
+    <div class="absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.04)_1px,transparent_1px)] [background-size:24px_24px] opacity-70"></div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="liquid-glass border-emerald-500/40 text-slate-900 px-5 py-3 rounded-2xl flex items-center gap-3 shadow-2xl">
+      <i class="ph-bold ph-check-circle text-emerald-600 text-xl"></i>
+      <span id="toast-message" class="text-sm font-semibold">Benachrichtigung</span>
+    </div>
+  </div>
+
+  <!-- Main Wrapper -->
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+    <!-- Top Glass Header -->
+    <nav class="liquid-glass rounded-2xl px-6 py-4 mb-10 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900">Zeke Herbert</span>
+        <span class="text-slate-300 font-light">/</span>
+        <span class="text-xs sm:text-sm font-medium text-slate-500">Portfolio &amp; Werdegang</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-50 text-emerald-700 border border-emerald-200/80 ml-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          Bremen
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <button onclick="openContactModal()" class="liquid-pill px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 text-slate-700 hover:text-blue-600">
+          <i class="ph-bold ph-envelope text-blue-600"></i>
+          <span>Kontakt</span>
+        </button>
+        <button onclick="copyShareLink()" class="liquid-pill px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 text-slate-700 hover:text-blue-600">
+          <i class="ph-bold ph-share-network text-sky-600"></i>
+          <span>Teilen</span>
+        </button>
+        <button onclick="window.print()" class="liquid-glass px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 text-blue-600 bg-blue-50/80 border-blue-200 hover:bg-blue-100/70">
+          <i class="ph-bold ph-printer"></i>
+          <span>Drucken / PDF</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Profile Section -->
+    <section class="liquid-glass rounded-3xl p-6 sm:p-10 mb-12 shadow-xl border-white/80">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-8 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full liquid-pill border-blue-300 text-blue-700 text-xs font-mono font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Verfügbar für Application Support &amp; Data Analytics
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            Anwendungs-Support trifft auf 
+            <span class="bg-gradient-to-r from-blue-600 via-sky-600 to-teal-600 bg-clip-text text-transparent">
+              Gesundheits- &amp; Datenkompetenz.
+            </span>
+          </h1>
+
+          <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+            Verbindung aus über 10 Jahren Praxiserfahrung im Gesundheitswesen mit strukturierter IT-Helpdesk-Routine, fundierter Prozesspraxis (Energiewirtschaft, Versicherungen, SAP) und IHK-Zertifizierung in SQL, relationalen Datenbanken und Datenanalyse[cite: 1, 2].
+          </p>
+
+          <!-- Key Metrics Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="liquid-glass rounded-2xl p-3.5 border-white/60">
+              <div class="text-xl sm:text-2xl font-bold text-slate-900 font-mono">10+ J.</div>
+              <div class="text-xs text-slate-500 font-medium">Gesundheitswesen</div>
+            </div>
+            <div class="liquid-glass rounded-2xl p-3.5 border-white/60">
+              <div class="text-xl sm:text-2xl font-bold text-blue-600 font-mono">1st &amp; 2nd</div>
+              <div class="text-xs text-slate-500 font-medium">Level IT-Support</div>
+            </div>
+            <div class="liquid-glass rounded-2xl p-3.5 border-white/60">
+              <div class="text-xl sm:text-2xl font-bold text-sky-600 font-mono">IHK</div>
+              <div class="text-xs text-slate-500 font-medium">Datenanalyst</div>
+            </div>
+            <div class="liquid-glass rounded-2xl p-3.5 border-white/60">
+              <div class="text-xl sm:text-2xl font-bold text-emerald-600 font-mono">DE / EN</div>
+              <div class="text-xs text-slate-500 font-medium">Muttersprachlich</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Info Card -->
+        <div class="lg:col-span-4">
+          <div class="liquid-glass rounded-2xl p-6 border-white/80 space-y-4 shadow-sm">
+            <div class="flex items-center gap-3 pb-3 border-b border-slate-200/70">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold text-xl shadow-sm">
+                <i class="ph-bold ph-identification-card"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 text-base">Zeke Herbert</h3>
+                <p class="text-xs text-slate-500 font-medium">Application Support &amp; Data</p>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-600">
+              <div class="flex items-center gap-3">
+                <i class="ph-fill ph-map-pin text-blue-600 text-base"></i>
+                <span>Leher Heerstraße 2, 28359 Bremen</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="ph-fill ph-envelope text-blue-600 text-base"></i>
+                <a href="mailto:zekeherbert@icloud.com" class="hover:text-blue-600 transition-colors font-medium">zekeherbert@icloud.com</a>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="ph-fill ph-phone-call text-blue-600 text-base"></i>
+                <a href="tel:015569521927" class="hover:text-blue-600 transition-colors font-medium">015569521927</a>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="ph-fill ph-baseball text-blue-600 text-base"></i>
+                <span>Baseballtrainer (Teamgeist &amp; Coaching)</span>
+              </div>
+            </div>
+
+            <button onclick="openContactModal()" class="w-full mt-2 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-sky-500 text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-blue-500/25 hover:opacity-95 transition-opacity flex items-center justify-center gap-2">
+              <i class="ph-bold ph-paper-plane-tilt"></i>
+              <span>Direkt Kontakt aufnehmen</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Control Bar: Category Filter & Live Search -->
+    <div class="liquid-glass rounded-2xl p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap items-center gap-2 w-full md:w-auto" id="filter-container">
+        <button onclick="filterTimeline('all', this)" class="liquid-pill active px-3.5 py-1.5 rounded-xl text-xs font-medium">
+          Alle Stationen
+        </button>
+        <button onclick="filterTimeline('support', this)" class="liquid-pill px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-700">
+          IT &amp; Support
+        </button>
+        <button onclick="filterTimeline('health', this)" class="liquid-pill px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-700">
+          Medizin &amp; Gesundheit
+        </button>
+        <button onclick="filterTimeline('management', this)" class="liquid-pill px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-700">
+          Führung &amp; Steuerung
+        </button>
+        <button onclick="filterTimeline('data', this)" class="liquid-pill px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-700">
+          Daten &amp; Analyse
+        </button>
+      </div>
+
+      <!-- Live Search Input -->
+      <div class="relative w-full md:w-72">
+        <i class="ph-bold ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input 
+          type="text" 
+          id="search-input" 
+          onkeyup="searchCards()" 
+          placeholder="Firma, Tool oder Fähigkeit suchen..." 
+          class="w-full bg-white/70 border border-slate-200/80 rounded-xl pl-10 pr-4 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500/70 focus:bg-white transition-all shadow-sm"
+        >
+      </div>
+    </div>
+
+    <!-- Career Timeline Grid -->
+    <div class="space-y-6" id="career-timeline">
+
+      <!-- Station 1: Bloomify -->
+      <div class="liquid-glass liquid-glass-card rounded-2xl p-6 border-white/80 timeline-item" data-category="support" data-keywords="bloomify e-commerce kundenservice support ticket remote pflanzen versand chat email">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+          <div class="flex items-start gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-600 text-2xl flex-shrink-0">
+              <i class="ph-bold ph-plant"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-lg font-bold text-slate-900">Kundenservice &amp; Support-Schnittstelle</h3>
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Aktuell</span>
+              </div>
+              <p class="text-sm text-teal-700 font-medium">Bloomify GmbH (Bremen / Remote)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <span class="text-xs font-mono text-slate-600 bg-slate-100/80 px-3 py-1 rounded-lg border border-slate-200">05.2026 – heute</span>
+            <button onclick="openCompanyModal('bloomify')" class="liquid-pill p-2 rounded-xl text-slate-600 hover:text-blue-600" title="Unternehmensprofil ansehen">
+              <i class="ph-bold ph-info text-base"></i>
+            </button>
+          </div>
+        </div>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+          Umfassende Kundenbetreuung für einen wachstumsstarken E-Commerce-Spezialisten mit Fokus auf Pflanzenberatung, Bestellausführung, Reklamationsklärung und technische Fallbearbeitung via E-Mail und Chat[cite: 1]. Zentrale Schnittstelle zwischen Kunden, Logistik und Qualitätsmanagement zur schnellen Problemlösung[cite: 1].
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200/60">
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">E-Commerce Support</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Fallbearbeitung</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Schnittstellenkommunikation</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Reklamationsmanagement</span>
+        </div>
+      </div>
+
+      <!-- Station 2: IT-Helpdesk Hub (Cambio, XPRON, KIKXXL mit SAP & Energie/Versicherungen) -->
+      <div class="liquid-glass liquid-glass-card rounded-2xl p-6 border-white/80 timeline-item" data-category="support" data-keywords="cambio xpron kikxxl helpdesk it support sap sachbearbeitung energiewirtschaft versicherungen dokumentation 1st level 2nd level remote ticketsystem">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+          <div class="flex items-start gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/25 flex items-center justify-center text-sky-600 text-2xl flex-shrink-0">
+              <i class="ph-bold ph-desktop-tower"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">IT-Helpdesk &amp; Qualifizierte Sachbearbeitung (SAP)</h3>
+              <p class="text-sm text-sky-700 font-medium">Cambio CarSharing | XPRON Systems | KIKXXL GmbH</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <span class="text-xs font-mono text-slate-600 bg-slate-100/80 px-3 py-1 rounded-lg border border-slate-200">01.2025 – 04.2026</span>
+            <button onclick="openCompanyModal('helpdesk_hub')" class="liquid-pill p-2 rounded-xl text-slate-600 hover:text-blue-600" title="Unternehmensprofile ansehen">
+              <i class="ph-bold ph-info text-base"></i>
+            </button>
+          </div>
+        </div>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+          Systematische Störungsanalyse und technischer Anwendersupport im 1st- und 2nd-Level. Bei KIKXXL zusätzlich fachlich anspruchsvolle <strong>Sachbearbeitung mit SAP</strong> in Kundenprojekten der <strong>Energiewirtschaft und des Versicherungswesens</strong>. Sorgfältige Klassifizierung, lückenlose Dokumentation und Remote-Support bei Cambio (Flotten-IT) und XPRON (B2B-Infrastruktur)[cite: 5].
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200/60">
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">1st &amp; 2nd Level Support</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">SAP Sachbearbeitung</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Energiewirtschaft &amp; Versicherungen</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Klassifizierung &amp; Dokumentation</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Remote-Störungsbehebung</span>
+        </div>
+      </div>
+
+      <!-- Station 3: Rhenus People (mit SAP, Energiewirtschaft, Versicherungen, Klassifizierung, Archivierung) -->
+      <div class="liquid-glass liquid-glass-card rounded-2xl p-6 border-white/80 timeline-item" data-category="management" data-keywords="rhenus people teamleiter standortleiter sap sachbearbeitung energiewirtschaft versicherungen klassifizierung dokumentation archivierung personalakten">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+          <div class="flex items-start gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center text-indigo-600 text-2xl flex-shrink-0">
+              <i class="ph-bold ph-users-three"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Teamleiter / Standortleiter</h3>
+              <p class="text-sm text-indigo-700 font-medium">Rhenus People (Bremen)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <span class="text-xs font-mono text-slate-600 bg-slate-100/80 px-3 py-1 rounded-lg border border-slate-200">06.2022 – 08.2024</span>
+            <button onclick="openCompanyModal('rhenus')" class="liquid-pill p-2 rounded-xl text-slate-600 hover:text-blue-600" title="Unternehmensprofil ansehen">
+              <i class="ph-bold ph-info text-base"></i>
+            </button>
+          </div>
+        </div>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+          Operative Führung und Steuerung von Projektteams für namhafte Großkunden aus der <strong>Energiewirtschaft, Versicherungen, öffentlichen Verwaltung</strong> und Sanitärbranche[cite: 1, 5]. Verantwortlich für qualifizierte <strong>Sachbearbeitung in SAP</strong>, Personalaktenverwaltung, Rechnungsklärung sowie die fachliche Steuerung der <strong>Klassifizierung, Dokumentation und rechtskonformen Archivierung</strong> sensibler Geschäftsdaten[cite: 1].
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200/60">
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Energiewirtschaft &amp; Versicherungen</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Klassifizierung &amp; Archivierung</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">SAP Sachbearbeitung</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Dokumentationsmanagement</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Operative Teamleitung</span>
+        </div>
+      </div>
+
+      <!-- Station 4: Bremer Heimstiftung -->
+      <div class="liquid-glass liquid-glass-card rounded-2xl p-6 border-white/80 timeline-item" data-category="health" data-keywords="bremer heimstiftung altenpfleger pflege gesundheit medizin dokumentation compliance patienten datenschutz">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+          <div class="flex items-start gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/25 flex items-center justify-center text-teal-600 text-2xl flex-shrink-0">
+              <i class="ph-bold ph-first-aid"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-lg font-bold text-slate-900">Altenpfleger (Stationär &amp; Ambulant)</h3>
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-teal-50 text-teal-700 border border-teal-200">10 Jahre Praxiserfahrung</span>
+              </div>
+              <p class="text-sm text-teal-700 font-medium">Bremer Heimstiftung</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <span class="text-xs font-mono text-slate-600 bg-slate-100/80 px-3 py-1 rounded-lg border border-slate-200">01.2010 – 07.2020</span>
+            <button onclick="openCompanyModal('bremer_heimstiftung')" class="liquid-pill p-2 rounded-xl text-slate-600 hover:text-blue-600" title="Unternehmensprofil ansehen">
+              <i class="ph-bold ph-info text-base"></i>
+            </button>
+          </div>
+        </div>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+          Ein ganzes Jahrzehnt engagierte pflegerische und organisatorische Verantwortung im führenden Bremer Seniorennetzwerk[cite: 1, 5]. Fundierte Vertrautheit mit medizinischen Dokumentationspflichten, Medikationsplänen, sensiblen Gesundheitsdaten, Datenschutz und anspruchsvoller Kommunikation mit Angehörigen und Ärzten[cite: 5].
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200/60">
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Medizinische Dokumentation</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Gesundheitsprozesse</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Datenschutz &amp; Sensible Daten</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Krisen- &amp; Stressresistenz</span>
+        </div>
+      </div>
+
+      <!-- Station 5: Walter Services -->
+      <div class="liquid-glass liquid-glass-card rounded-2xl p-6 border-white/80 timeline-item" data-category="management" data-keywords="walter services teamleiter inbound tchibo schulung bestellannahme qualitätskontrolle">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+          <div class="flex items-start gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-600 text-2xl flex-shrink-0">
+              <i class="ph-bold ph-headset"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Teamleiter Inbound</h3>
+              <p class="text-sm text-amber-700 font-medium">Walter Services (Großkunde: Tchibo)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <span class="text-xs font-mono text-slate-600 bg-slate-100/80 px-3 py-1 rounded-lg border border-slate-200">05.2008 – 01.2010</span>
+            <button onclick="openCompanyModal('walter_services')" class="liquid-pill p-2 rounded-xl text-slate-600 hover:text-blue-600" title="Unternehmensprofil ansehen">
+              <i class="ph-bold ph-info text-base"></i>
+            </button>
+          </div>
+        </div>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+          Disziplinarische und fachliche Führung eines schlagkräftigen Inbound-Teams für den Key-Account Tchibo[cite: 1, 5]. Durchführung von Mitarbeiter- und Methodenschulungen, Monitoring von Service-Level-Agreements (SLAs), Qualitätsaudits und Strukturierung von Projektabläufen[cite: 1, 5].
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200/60">
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Mitarbeiterschulung</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">SLA-Steuerung</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Qualitätsaudits</span>
+        </div>
+      </div>
+
+      <!-- Station 6: MySpace Community Manager -->
+      <div class="liquid-glass liquid-glass-card rounded-2xl p-6 border-white/80 timeline-item" data-category="data" data-keywords="myspace community manager datenanalyse statistiken social media trends content reichweite">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+          <div class="flex items-start gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/25 flex items-center justify-center text-pink-600 text-2xl flex-shrink-0">
+              <i class="ph-bold ph-globe-hemisphere-west"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Community Manager</h3>
+              <p class="text-sm text-pink-700 font-medium">MySpace (Pionierzeit digitaler Zielgruppen)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <span class="text-xs font-mono text-slate-600 bg-slate-100/80 px-3 py-1 rounded-lg border border-slate-200">02.2008 – 06.2010</span>
+            <button onclick="openCompanyModal('myspace')" class="liquid-pill p-2 rounded-xl text-slate-600 hover:text-blue-600" title="Unternehmensprofil ansehen">
+              <i class="ph-bold ph-info text-base"></i>
+            </button>
+          </div>
+        </div>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+          Betreuung und Moderation auf einer der damals weltweit größten digitalen Plattformen[cite: 1, 5]. Monitoring von Nutzerinteraktionen, Erkennung von Engagement-Trends, statistische Auswertung digitaler Dynamiken sowie Betreuung von Künstlern und Content-Partnern[cite: 1, 5].
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200/60">
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Social Analytics</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Community Engagement</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Content Management</span>
+        </div>
+      </div>
+
+      <!-- Station 7: Medien & Kultur Wurzeln -->
+      <div class="liquid-glass liquid-glass-card rounded-2xl p-6 border-white/80 timeline-item" data-category="management" data-keywords="deluxe records rap.de universum science center space park audio video produktion organisation">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+          <div class="flex items-start gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-purple-600 text-2xl flex-shrink-0">
+              <i class="ph-bold ph-waveform"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Medienproduktion, Administration &amp; Teamleitung</h3>
+              <p class="text-sm text-purple-700 font-medium">Deluxe Records Hamburg • Rap.de / Styleheads • Universum Bremen • Space Park</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <span class="text-xs font-mono text-slate-600 bg-slate-100/80 px-3 py-1 rounded-lg border border-slate-200">2001 – 2008</span>
+          </div>
+        </div>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+          Vielseitige Wurzeln in digitaler Audio- und Videobearbeitung, Projektumsetzung und Personalführung: Von der Organisation bei Deluxe Records und Styleheads über das Management von Ticketing- und Besuchersystemen im Universum Science Center bis hin zur Leitung von Attraktionsteams im Space Park Bremen[cite: 1, 5].
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200/60">
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Audio-/Videoproduktion</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Ticketing- &amp; Shop-Systeme</span>
+          <span class="px-2.5 py-1 rounded-lg text-xs bg-white text-slate-700 border border-slate-200/80 shadow-2xs">Personalrekrutierung</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Certified Data Analyst & Tech Stack Section -->
+    <section class="mt-14 mb-12">
+      <div class="flex items-center justify-between gap-4 mb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+            <i class="ph-bold ph-certificate text-blue-600 text-2xl"></i>
+            <span>IHK-Qualifizierung &amp; Zertifikate</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-medium">DataSmart Point GmbH Berlin (AZAV-zertifiziert gem. §§ 179-181 SGB III)[cite: 2, 5]</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Cert 1: SQL & Datenbanken -->
+        <div class="liquid-glass rounded-2xl p-5 border-white/80 hover:border-blue-400 transition-all shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 font-semibold">288 UE</span>
+            <i class="ph-bold ph-database text-blue-600 text-xl"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-1">SQL &amp; Datenbanken</h3>
+          <p class="text-xs text-slate-500 mb-3">Relationale Datenmodelle, komplexe Abfragen, Tabellenverknüpfungen &amp; Performance-Abfragen[cite: 5].</p>
+          <div class="text-[11px] font-mono text-slate-500 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+            <span>ID: ca9752f4...</span>
+            <span class="text-emerald-600 font-semibold flex items-center gap-1"><i class="ph-bold ph-check"></i> Gültig</span>
+          </div>
+        </div>
+
+        <!-- Cert 2: Python Data Analysis -->
+        <div class="liquid-glass rounded-2xl p-5 border-white/80 hover:border-teal-400 transition-all shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-200 font-semibold">413 UE</span>
+            <i class="ph-bold ph-code text-teal-600 text-xl"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-1">Python für Datenanalyse</h3>
+          <p class="text-xs text-slate-500 mb-3">Datenbereinigung, Skripterstellung, Pandas, Jupyter Notebook &amp; automatisierte Datenworkflows[cite: 5].</p>
+          <div class="text-[11px] font-mono text-slate-500 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+            <span>ID: 8fb63bc6...</span>
+            <span class="text-emerald-600 font-semibold flex items-center gap-1"><i class="ph-bold ph-check"></i> Gültig</span>
+          </div>
+        </div>
+
+        <!-- Cert 3: AI & Machine Learning -->
+        <div class="liquid-glass rounded-2xl p-5 border-white/80 hover:border-indigo-400 transition-all shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 font-semibold">160 UE</span>
+            <i class="ph-bold ph-brain text-indigo-600 text-xl"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-1">AI &amp; Machine Learning</h3>
+          <p class="text-xs text-slate-500 mb-3">Modellierung, Vorhersageanalysen und praktischer Einsatz von KI-Algorithmen[cite: 5].</p>
+          <div class="text-[11px] font-mono text-slate-500 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+            <span>ID: 7cbf8428...</span>
+            <span class="text-emerald-600 font-semibold flex items-center gap-1"><i class="ph-bold ph-check"></i> Gültig</span>
+          </div>
+        </div>
+
+        <!-- Cert 4: Agiles Projektmanagement -->
+        <div class="liquid-glass rounded-2xl p-5 border-white/80 hover:border-amber-400 transition-all shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 font-semibold">50 UE</span>
+            <i class="ph-bold ph-kanban text-amber-600 text-xl"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-1">Agiles Projektmanagement</h3>
+          <p class="text-xs text-slate-500 mb-3">Scrum, iterative Projektabwicklung, Ticket-Priorisierung und lösungsorientierte Sprints[cite: 5].</p>
+          <div class="text-[11px] font-mono text-slate-500 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+            <span>CHVB-JLMI</span>
+            <span class="text-emerald-600 font-semibold flex items-center gap-1"><i class="ph-bold ph-check"></i> Gültig</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Comprehensive Skill Matrix -->
+    <section class="liquid-glass rounded-3xl p-6 sm:p-8 mb-12 border-white/80 shadow-sm">
+      <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2.5">
+        <i class="ph-bold ph-cpu text-blue-600"></i>
+        <span>Technologie- &amp; Kompetenzprofil</span>
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-wider text-blue-700 font-semibold mb-3 flex items-center gap-2">
+            <i class="ph-bold ph-database"></i> Datenbanken &amp; Analytics
+          </h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">MySQL &amp; SQL</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Microsoft Power BI</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Python</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">KNIME Analytics</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Jupyter Notebooks</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-wider text-sky-700 font-semibold mb-3 flex items-center gap-2">
+            <i class="ph-bold ph-headset"></i> Support, SAP &amp; Prozess
+          </h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">1st &amp; 2nd Level Support</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">SAP Sachbearbeitung</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Klassifizierung &amp; Archivierung</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Kundenschulungen</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Ticketsysteme &amp; Remote</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-wider text-teal-700 font-semibold mb-3 flex items-center gap-2">
+            <i class="ph-bold ph-heartbeat"></i> Gesundheit, Branchen &amp; Führung
+          </h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Energiewirtschaft</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Versicherungswesen</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Arbeitsmedizinisches Verständnis</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Medizinische Dokumentation</span>
+            <span class="liquid-pill px-3 py-1.5 rounded-xl text-xs text-slate-700 font-medium">Teamleitung</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-xs text-slate-500 border-t border-slate-200/60">
+      <p>© 2026 Zeke Herbert – Application Support &amp; Datenanalyse. Bremen, Deutschland.</p>
+    </footer>
+
+  </div>
+
+  <!-- Company Deep-Dive Modal (Glass Dialog) -->
+  <div id="company-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/30 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="liquid-glass border-white/95 rounded-3xl max-w-xl w-full p-6 sm:p-8 transform scale-95 transition-transform duration-300 shadow-2xl relative" id="modal-card">
+      <button onclick="closeCompanyModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-800 p-2 rounded-xl liquid-pill text-base">
+        <i class="ph-bold ph-x"></i>
+      </button>
+      <div id="modal-content" class="space-y-4">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/30 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="liquid-glass border-white/95 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeContactModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-800 p-2 rounded-xl liquid-pill text-base">
+        <i class="ph-bold ph-x"></i>
+      </button>
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl border border-blue-200">
+          <i class="ph-bold ph-envelope"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">Kontakt aufnehmen</h3>
+          <p class="text-xs text-slate-500 font-medium">Zeke Herbert • Bremen</p>
+        </div>
+      </div>
+      
+      <div class="space-y-3">
+        <a href="mailto:zekeherbert@icloud.com" class="flex items-center justify-between p-3.5 rounded-xl liquid-glass hover:border-blue-400 transition-colors group">
+          <div class="flex items-center gap-3">
+            <i class="ph-bold ph-envelope-simple text-blue-600 text-lg"></i>
+            <div>
+              <div class="text-xs text-slate-500">E-Mail schreiben</div>
+              <div class="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">zekeherbert@icloud.com</div>
+            </div>
+          </div>
+          <i class="ph-bold ph-arrow-right text-slate-400 group-hover:text-blue-600 transition-colors"></i>
+        </a>
+
+        <a href="tel:015569521927" class="flex items-center justify-between p-3.5 rounded-xl liquid-glass hover:border-blue-400 transition-colors group">
+          <div class="flex items-center gap-3">
+            <i class="ph-bold ph-phone text-sky-600 text-lg"></i>
+            <div>
+              <div class="text-xs text-slate-500">Telefon / Mobil</div>
+              <div class="text-sm font-semibold text-slate-900 group-hover:text-sky-600 transition-colors">015569521927</div>
+            </div>
+          </div>
+          <i class="ph-bold ph-arrow-right text-slate-400 group-hover:text-sky-600 transition-colors"></i>
+        </a>
+
+        <button onclick="copyToClipboard('zekeherbert@icloud.com', 'E-Mail kopiert!')" class="w-full mt-4 py-2.5 rounded-xl liquid-pill text-xs font-semibold text-slate-700 hover:text-blue-600 flex items-center justify-center gap-2">
+          <i class="ph-bold ph-copy"></i>
+          <span>E-Mail-Adresse kopieren</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Rich Company Data Profiles
+    const companyData = {
+      bloomify: {
+        name: "Bloomify GmbH",
+        badge: "E-Commerce & Digital Commerce",
+        location: "Bremen / Remote",
+        period: "05.2026 – heute",
+        summary: "Bloomify ist ein innovativer deutscher Online-Pflanzenshop und Direct-to-Consumer-Anbieter, der sich auf nachhaltige Pflanzen und Gartenprodukte spezialisiert hat.",
+        details: [
+          "Bearbeitung von technischen Bestell- und Zahlungsanfragen über E-Mail- und Chat-Tickets.",
+          "Verbindungsstelle zwischen Kundenanliegen, Logistikpartnern und Lagersteuerung.",
+          "Hohe Servicequalität durch empathische Beratung und rasche Reklamationsklärung."
+        ],
+        relevance: "Relevanz für Support: Tägliche Beherrschung moderner Ticketsysteme, präzise Fallbearbeitung und Schnittstellenkompetenz zu internen Abteilungen."
+      },
+      helpdesk_hub: {
+        name: "Cambio, XPRON & KIKXXL",
+        badge: "IT-Support, Flottensoftware & SAP",
+        location: "Deutschland / Remote",
+        period: "01.2025 – 04.2026",
+        summary: "Drei anspruchsvolle Stationen im Bereich IT-Helpdesk und qualifizierter Sachbearbeitung: Cambio (CarSharing-Plattform), XPRON (IT-Service-Provider) und KIKXXL (Kommunikation & Operations).",
+        details: [
+          "1st- und 2nd-Level-Störungsbehebung per Remote-Desktop und Ticket.",
+          "KIKXXL: Qualifizierte Sachbearbeitung in SAP bei Kundenprojekten aus der Energiewirtschaft und dem Versicherungswesen.",
+          "Strukturierte Klassifizierung und saubere Dokumentation im Ticketsystem für nachgelagerte Fachteams."
+        ],
+        relevance: "Relevanz für Support: Fundierte Routine in strukturierter Fehleranalyse, 2nd-Level-Support und SAP-gestützter Sachbearbeitung in regulierten Märkten."
+      },
+      rhenus: {
+        name: "Rhenus People (Rhenus Gruppe)",
+        badge: "Globaler Logistik- & Business Solutions Konzern",
+        location: "Bremen",
+        period: "06.2022 – 08.2024",
+        summary: "Rhenus People ist Teil der global agierenden Rhenus-Gruppe, die anspruchsvolle Geschäftsprozesse und Dokumentenlogistik für Schlüsselbranchen betreibt.",
+        details: [
+          "Standort- und Teamleitung über Großkundenprojekte aus Energie, Versicherungen und Verwaltung.",
+          "Fachliche Steuerung von Klassifizierung, Dokumentation und revisionssicherer Archivierung von Akten.",
+          "Rechnungsklärung, Sachbearbeitung mit SAP, Personalaktenverwaltung und Schulung der Teams."
+        ],
+        relevance: "Relevanz für Support: Souveräne Führung, Know-how in Dokumentenarchivierung und Klassifizierung komplexer Geschäftsprozesse."
+      },
+      bremer_heimstiftung: {
+        name: "Bremer Heimstiftung",
+        badge: "Gesundheitswesen & Soziale Trägerschaft",
+        location: "Bremen",
+        period: "01.2010 – 07.2020 (10 Jahre)",
+        summary: "Der führende Altenhilfeträger in Bremen mit über 30 Einrichtungen und mehr als 2.500 Mitarbeitenden, bekannt für strenge Qualitäts- und Hygienestandards.",
+        details: [
+          "Verantwortungsvolle Pflege und lückenlose medizinische Dokumentation im Schichtbetrieb.",
+          "Umgang mit vertraulichen Patientendaten, ärztlichen Verordnungen und Datenschutz.",
+          "Hohe Belastbarkeit in Krisensituationen und empathische Kommunikation mit Angehörigen und Fachärzten."
+        ],
+        relevance: "Relevanz für Arbeitsmedizin: 10 Jahre praktisches Verständnis der Dokumentationsabläufe, medizinischer Fachbegriffe und Anforderungen an Datenschutz im Gesundheitswesen."
+      },
+      walter_services: {
+        name: "Walter Services (Kunde: Tchibo)",
+        badge: "Customer Care & Service Operations",
+        location: "Bremen",
+        period: "05.2008 – 01.2010",
+        summary: "Traditionsreicher Kundenservice-Dienstleister Deutschlands, spezialisiert auf das Inbound-Management renommierter Marken.",
+        details: [
+          "Führung des Inbound-Teams für den Exklusivkunden Tchibo.",
+          "Konzeption und Durchführung von Trainings zu Prozessoptimierung und Gesprächsführung.",
+          "Controlling von Kennzahlen (Erreichbarkeit, Lösungsquote, Bearbeitungszeit)."
+        ],
+        relevance: "Relevanz für Support: Erfahrung mit Schulungsformaten und serviceorientiertem Denken."
+      },
+      myspace: {
+        name: "MySpace",
+        badge: "Global Social Media & Entertainment Platform",
+        location: "International / Remote",
+        period: "02.2008 – 06.2010",
+        summary: "MySpace war der weltweite Vorreiter sozialer Netzwerke und eine der verkehrsreichsten Webseiten der Welt mit hunderten Millionen Mitgliedern.",
+        details: [
+          "Betreuung der Künstler- und Musiker-Communitys.",
+          "Erkennen von Nutzertrends und Monitoring statistischer Kennzahlen.",
+          "Weiterleitung von Bug-Reports und Community-Feedback an die US-Entwicklungsteams."
+        ],
+        relevance: "Relevanz für Support: Datenaffinität, Identifikation digitaler Muster und interkulturelle Kommunikation."
+      }
+    };
+
+    // Filter Logic
+    function filterTimeline(category, btnElement) {
+      const buttons = document.querySelectorAll('#filter-container button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      const items = document.querySelectorAll('.timeline-item');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Search Logic
+    function searchCards() {
+      const query = document.getElementById('search-input').value.toLowerCase().trim();
+      const items = document.querySelectorAll('.timeline-item');
+
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        const keywords = item.getAttribute('data-keywords') ? item.getAttribute('data-keywords').toLowerCase() : '';
+        if (text.includes(query) || keywords.includes(query)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Company Modal Handlers
+    function openCompanyModal(companyKey) {
+      const data = companyData[companyKey];
+      if (!data) return;
+
+      const modal = document.getElementById('company-modal');
+      const card = document.getElementById('modal-card');
+      const content = document.getElementById('modal-content');
+
+      let detailsHtml = data.details.map(d => `<li class="flex items-start gap-2"><span class="text-blue-600 font-bold">•</span><span class="text-slate-700">${d}</span></li>`).join('');
+
+      content.innerHTML = `
+        <div class="flex items-start gap-3.5 pb-3 border-b border-slate-200">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl border border-blue-200 flex-shrink-0">
+            <i class="ph-bold ph-buildings"></i>
+          </div>
+          <div>
+            <div class="text-xs font-mono text-blue-600 font-semibold">${data.badge}</div>
+            <h3 class="text-xl font-bold text-slate-900">${data.name}</h3>
+            <div class="text-xs text-slate-500 font-medium">${data.location} | ${data.period}</div>
+          </div>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${data.summary}</p>
+
+        <div class="liquid-glass rounded-xl p-3.5 border-slate-200/80 bg-white/70">
+          <div class="text-xs font-bold text-slate-900 mb-2 uppercase tracking-wider">Kernaufgaben &amp; Verantwortung</div>
+          <ul class="text-xs text-slate-600 space-y-1.5">
+            ${detailsHtml}
+          </ul>
+        </div>
+
+        <div class="p-3 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-900">
+          <strong>Stärke:</strong> ${data.relevance}
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        card.classList.remove('scale-95');
+        card.classList.add('scale-100');
+      }, 10);
+    }
+
+    function closeCompanyModal() {
+      const modal = document.getElementById('company-modal');
+      const card = document.getElementById('modal-card');
+      modal.classList.add('opacity-0');
+      card.classList.remove('scale-100');
+      card.classList.add('scale-95');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 250);
+    }
+
+    // Contact Modal Handlers
+    function openContactModal() {
+      const modal = document.getElementById('contact-modal');
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+      }, 10);
+    }
+
+    function closeContactModal() {
+      const modal = document.getElementById('contact-modal');
+      modal.classList.add('opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 250);
+    }
+
+    // Copy Helper
+    function copyToClipboard(text, msg) {
+      const tempInput = document.createElement('input');
+      tempInput.style.position = 'fixed';
+      tempInput.style.opacity = '0';
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast(msg || 'In die Zwischenablage kopiert');
+      } catch (err) {
+        showToast('Konnte nicht kopiert werden');
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    function copyShareLink() {
+      copyToClipboard(window.location.href, 'Link zur Seite kopiert!');
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.innerText = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 2600);
+    }
+
+    // Close modals on clicking backdrop
+    window.addEventListener('click', (e) => {
+      const compModal = document.getElementById('company-modal');
+      const contModal = document.getElementById('contact-modal');
+      if (e.target === compModal) closeCompanyModal();
+      if (e.target === contModal) closeContactModal();
+    });
+  </script>
+</body>
+</html>
